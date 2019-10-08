@@ -6,22 +6,36 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:34:49 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/07 16:20:49 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/08 14:57:18 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int atoi(const char *str)
+int	ft_isdigit1(int c)
 {
-    int nb;
-    int is_negative;
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
-    is_negative = 1;
-    while (*str == ' ')
-        str++;
-    if (*str == '-')
-        is_negative *= -1;
-    str++;
-    while (isdigit(*str))
-        ;
-    return (nb);
+int	ft_atoi(const char *str)
+{
+	int nb;
+	int is_negative;
+
+	is_negative = 1;
+	nb = 0;
+	while (*str == ' ')
+		str++;
+	if (*str == '-')
+	{
+		is_negative *= -1;
+		str++;
+	}
+	while (ft_isdigit1(*str))
+	{
+		nb *= 10;
+		nb += *str - 48;
+		str++;
+	}
+	return (nb * is_negative);
 }

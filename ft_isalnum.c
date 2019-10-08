@@ -6,13 +6,14 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 16:30:10 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/07 16:44:55 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/08 14:58:48 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-    if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-        return (1);
-    return (0);
+	if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') ||
+			(c >= 'a' && c <= 'z'))
+		return (1);
+	return (0);
 }

@@ -6,18 +6,18 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 17:00:08 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/07 17:19:20 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/08 15:20:34 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (s[i] != '\0')
-        i++;
-    while (i && s[i] != (char)c)
-        i--;
-    return ((char *)&(s[i]));
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	while (i && s[i] != (char)c)
+		i--;
+	return ((char *)&(s[i]));
 }

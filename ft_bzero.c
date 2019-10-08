@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 16:08:15 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/08 14:59:55 by adtheus          ###   ########.fr       */
+/*   Created: 2019/10/08 15:30:02 by adtheus           #+#    #+#             */
+/*   Updated: 2019/10/08 17:38:20 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include <stddef.h>
+
+void	ft_bzero(void *s, size_t n)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
+	unsigned char	*str;
+	size_t			i;
+
+	str = (unsigned char*)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = 0;
+		i++;
+	}
 }

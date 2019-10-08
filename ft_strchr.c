@@ -6,13 +6,13 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 17:00:08 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/07 17:09:24 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/08 15:02:12 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-    while (*s != '\0' && *s != (char)c)
-        s++;
-    return ((char *)s);
+	while (*s != '\0' && *s != (char)c)
+		s++;
+	return ((char *)s);
 }
