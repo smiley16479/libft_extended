@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 14:17:26 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/09 15:40:29 by adtheus          ###   ########.fr       */
+/*   Created: 2019/10/09 14:12:30 by adtheus           #+#    #+#             */
+/*   Updated: 2019/10/09 15:30:20 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	*str;
-	unsigned char	*str_src;
-	size_t			l;
+	char	*str;
+	size_t	n;
+	size_t	l;
 
-	str = (unsigned char*)dst;
-	str_src = (unsigned char*)src;
-	l = 0;
-	while (l < n)
+	n = 1;
+	while (s1[n - 1])
+		n++;
+	if ((str = (char*)malloc(sizeof(str) * n)) != NULL)
 	{
-		str[l] = str_src[l];
-		l++;
+		l = 0;
+		while (l < n)
+		{
+			str[l] = s1[l];
+			l++;
+		}
 	}
-	return (dst);
+	return (str);
 }

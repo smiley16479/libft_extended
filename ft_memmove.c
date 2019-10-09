@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:17:26 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/09 15:40:29 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/09 15:41:26 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned char	*str;
 	unsigned char	*str_src;
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 	str = (unsigned char*)dst;
 	str_src = (unsigned char*)src;
 	l = 0;
-	while (l < n)
+	while (l < len)
 	{
 		str[l] = str_src[l];
 		l++;

@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 14:17:26 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/09 15:40:29 by adtheus          ###   ########.fr       */
+/*   Created: 2019/10/09 14:41:19 by adtheus           #+#    #+#             */
+/*   Updated: 2019/10/09 15:39:35 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <stddef.h>
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*str;
-	unsigned char	*str_src;
-	size_t			l;
+	char	*str;
+	size_t	n;
 
-	str = (unsigned char*)dst;
-	str_src = (unsigned char*)src;
-	l = 0;
-	while (l < n)
-	{
-		str[l] = str_src[l];
-		l++;
-	}
-	return (dst);
+	n = 0;
+	if ((str = (char*)malloc(sizeof(*str) * len + 1)) != NULL)
+		while (n < len && s[n])
+		{
+			str[n] = s[start + n];
+			n++;
+		}
+	else
+		return (NULL);
+	str[n] = '\0';
+	return (str);
 }
