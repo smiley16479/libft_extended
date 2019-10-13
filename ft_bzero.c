@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:30:02 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/09 14:04:04 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/13 18:50:28 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*str;
-	size_t			i;
-
-	str = (unsigned char*)s;
-	i = 0;
-	while (i < n)
-	{
-		str[i] = 0;
-		i++;
-	}
+	while (n--)
+		*((unsigned char*)s++) = 0;
 }

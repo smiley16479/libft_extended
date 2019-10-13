@@ -6,18 +6,18 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:34:49 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/08 14:57:18 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/12 19:58:04 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit1(int c)
+static int	ft_isdigit1(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	int nb;
 	int is_negative;

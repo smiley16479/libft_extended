@@ -6,7 +6,7 @@
 #    By: adtheus <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 18:52:42 by adtheus           #+#    #+#              #
-#    Updated: 2019/10/12 19:32:18 by adtheus          ###   ########.fr        #
+#    Updated: 2019/10/12 20:16:43 by adtheus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 .c.o:
 			${GCC} ${CFLAGS} -I ${HEADER} -c $< -o ${<:.c=.o}
 
-${NAME}:	${OBJS} ${GCH}
+$(NAME):	${OBJS} ${GCH}
 			${AR} ${NAME} ${OBJS} 
 
 all:		${NAME}

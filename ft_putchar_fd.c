@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 14:17:26 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/13 18:23:33 by adtheus          ###   ########.fr       */
+/*   Created: 2019/10/13 14:19:46 by adtheus           #+#    #+#             */
+/*   Updated: 2019/10/13 14:30:27 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	while (n--)
-	{
-		if (*((unsigned char*)s) == (unsigned char)c)
-			return ((void*)s);
-		s++;
-	}
-	return (NULL);
+	write(fd, &c, 1);
 }
+
+/*
+**int main(void)
+**{
+**		int fd;
+**		fd = open("./text.txt", O_WRONLY);
+**		ft_putchar_fd('c', fd);
+**		return (0);
+**}
+*/

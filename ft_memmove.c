@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:17:26 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/10 11:03:29 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/13 18:17:54 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,24 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*str_dest;
-	unsigned char	*str_src;
-	size_t			l;
+	void *original_dest;
 
-	str_dest = (unsigned char*)dst;
-	str_src = (unsigned char*)src;
-	l = 0;
-	while (l < len)
+	original_dest = dst;
+	while (len--)
 	{
-		str_dest[l] = str_src[l];
-		l++;
+		if (src < dst)
+			((unsigned char*)dst)[len] = ((unsigned char*)src)[len];
+		else
+			*((unsigned char*)dst++) = *((unsigned char*)src++);
 	}
-	return (dst);
+	return (original_dest);
 }
+
+/*
+**int main()
+**{
+**	char str[] = "HelloSalut";
+**	printf("%s", ft_memmove( &str[4], str, 6));
+**	return(0);
+**}
+*/

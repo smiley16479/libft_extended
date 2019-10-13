@@ -6,13 +6,13 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 16:21:26 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/12 19:51:23 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/13 14:22:57 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		i;
@@ -25,9 +25,9 @@ char *ft_itoa(int n)
 	{
 		i *= 10;
 		j++;
-	}	
+	}
 	if (!(str = (char*)malloc(sizeof(*str) * j)))
-		return (0);	
+		return (0);
 	k = 0;
 	while (i)
 	{
