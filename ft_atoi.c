@@ -6,16 +6,11 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:34:49 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/12 19:58:04 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/15 16:01:01 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_isdigit1(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
+#include "libft.h"
 
 int			ft_atoi(const char *str)
 {
@@ -23,15 +18,17 @@ int			ft_atoi(const char *str)
 	int is_negative;
 
 	is_negative = 1;
-	nb = 0;
-	while (*str == ' ')
+	while ((*str >= '\t' && *str <= '\r') || *str == ' ' ? 1 : 0)
 		str++;
 	if (*str == '-')
 	{
 		is_negative *= -1;
 		str++;
 	}
-	while (ft_isdigit1(*str))
+	else if (*str == '+')
+		str++;
+	nb = 0;
+	while (ft_isdigit((int)*str))
 	{
 		nb *= 10;
 		nb += *str - 48;

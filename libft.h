@@ -6,12 +6,13 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 20:00:09 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/13 14:35:41 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/15 15:40:45 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stddef.h>
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);

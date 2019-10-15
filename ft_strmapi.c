@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 14:19:28 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/13 14:33:24 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/15 18:32:32 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,6 @@ static void		strcpy(const char *src, char *dest)
 	*dest = *src;
 }
 
-static char		funct(unsigned int a, char c)
-{
-	c += a;
-	return (c);
-}
-
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
@@ -46,9 +40,10 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (str[i])
 	{
-		str[i] = f(1, str[i]);
+		str[i] = f(i, str[i]);
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }
 
