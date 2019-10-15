@@ -4,6 +4,7 @@
 	"files.associations": {
 		"stddef.h": "c",
 		"stdlib.h": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"unistd.h": "c"
 	}
 }
