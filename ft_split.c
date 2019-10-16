@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 16:53:29 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/12 16:19:14 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/16 16:51:54 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	*allocncpy(char const *s, size_t i_tmp, size_t i)
 	char	*str;
 
 	j = 0;
-	if (!(str = malloc(sizeof(*str) * i - i_tmp)))
+	if (!(str = malloc(sizeof(*str) * (i - i_tmp + 1))))
 		return (0);
 	while (i_tmp < i)
 	{
@@ -80,9 +80,7 @@ char		**ft_split(char const *s, char c)
 		{
 			while (s[i[0]] != c && s[i[0]])
 				i[0]++;
-			if ((strs[i[1]] = (char*)malloc(sizeof(**strs) * i[0] - i[2])))
-				strs[i[1]++] = allocncpy(s, i[2], i[0]);
-			else
+			if (!(strs[i[1]++] = allocncpy(s, i[2], i[0])))
 				return (free_tab(strs, &i[1]));
 		}
 	}
@@ -93,8 +91,8 @@ char		**ft_split(char const *s, char c)
 /*
 **	int main(void)
 **	{
-**		char *str = NULL;
-**		char set  = NULL;
+**		char *str = "Haloa comment ca va ?";
+**		char set  = 'a';
 **		char **strs;
 **
 **		strs = ft_split(str, set);
