@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:12:30 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/09 15:30:20 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 15:06:11 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,18 @@ char	*ft_strdup(const char *s1)
 {
 	char	*str;
 	size_t	n;
-	size_t	l;
 
-	n = 1;
-	while (s1[n - 1])
+	n = 0;
+	while (s1[n])
 		n++;
-	if ((str = (char*)malloc(sizeof(str) * n)) != NULL)
+	if (!(str = (char*)malloc(sizeof(*str) * n + 1)))
+		return (0);
+	n = 0;
+	while (*s1)
 	{
-		l = 0;
-		while (l < n)
-		{
-			str[l] = s1[l];
-			l++;
-		}
+		str[n] = *(s1++);
+		n++;
 	}
+	str[n] = '\0';
 	return (str);
 }

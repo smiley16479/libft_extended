@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 14:19:28 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/15 20:15:59 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 15:16:52 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*str;
 	size_t	i;
 
+	if (!s || !f)
+		return (0);
 	if (!(str = (char*)malloc(sizeof(*str) * strlen(s) + 1)))
 		return (0);
 	strcpy(s, str);

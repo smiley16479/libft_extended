@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 16:53:29 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/16 16:51:54 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 15:16:18 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ char		**ft_split(char const *s, char c)
 	size_t	i[3];
 	char	**strs;
 
+	if (!s)
+		return (NULL);
 	i[0] = 0;
 	i[1] = 0;
 	if (!(strs = count_strs(s, c)))

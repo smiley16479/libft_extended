@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 13:31:14 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/16 00:44:12 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 15:15:35 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	int		index_suf;
 	char	*str;
 
+	if (!s1 || !set)
+		return (NULL);
 	index_pre = 0;
 	index_suf = ft_strlen(s1);
 	while (is_set(s1[index_pre], set))

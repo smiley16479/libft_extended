@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 14:19:40 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/13 14:24:07 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 15:19:35 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (fd < 0 || !s)
+		return ;
 	while (*s)
 	{
 		write(fd, s, 1);

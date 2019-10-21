@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 14:19:36 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/13 14:32:23 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 15:18:42 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (fd < 0 || !s)
+		return ;
 	while (*s)
 	{
 		write(fd, s, 1);

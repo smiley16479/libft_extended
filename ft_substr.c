@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:41:19 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/16 16:03:08 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 15:11:51 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str;
 	size_t	n;
 
+	if (!s)
+		return (NULL);
 	if (start > ft_strlen(s))
 		len = 0;
 	if (!(str = (char*)malloc(sizeof(*str) * (len + 1))))

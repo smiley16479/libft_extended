@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 17:00:08 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/15 14:17:21 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 14:04:48 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t i;
 	size_t j;
 
+	if (!dst || !src)
+		return (0);
 	i = 0;
 	j = ft_strlen(src);
 	while (i + 1 < dstsize && src[i])

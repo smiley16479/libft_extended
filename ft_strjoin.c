@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:52:17 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/09 15:24:58 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 15:14:33 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char			*ft_strjoin(char const *s1, char const *s2)
 	size_t	lenght2;
 	char	*str;
 
+	if (!s1 || !s2)
+		return (NULL);
 	lenght1 = 0;
 	lenght2 = 0;
 	if ((str = (char*)malloc(sizeof(str) * (len(s1) + len(s2) + 1))) != NULL)

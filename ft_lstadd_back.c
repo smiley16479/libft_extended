@@ -6,23 +6,27 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 18:53:59 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/20 10:45:32 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 15:58:18 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
 	t_list *tmp;
 
-	if (!alst || !(*alst) || !new)
+	if (!alst || !new)
 		return ;
+	if (*alst == NULL)
+	{
+		*alst = new;
+		return ;
+	}
 	tmp = *alst;
-	while ((tmp)->next)
-		tmp = (tmp)->next;
-	(tmp)->next = new;
-	new->next = NULL;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
 }
 
 /*
@@ -64,21 +68,23 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 **
 **	lists = begin;
 **
-**	while (lists->next)
+**	while (lists)
 **	{
 **		printf("%d\n", *((int*)(lists->content)));
 **		lists = lists->next;
 **	}
-**	printf("%d\n", *((int*)(lists->content)));
+** //	printf("%d\n", *((int*)(lists->content)));
 **	printf("\n\n");
 **
-**	ft_lstadd_back(&lists, &lists_to_add);
 **	lists = begin;
-**	while (lists->next)
+**	ft_lstadd_back(&lists, &lists_to_add);
+** //	lists = begin;
+**	while (lists)
 **	{
-**		lists = lists->next;
 **		printf("%d\n", *((int*)(lists->content)));
+**		lists = lists->next;
 **	}
+** //		printf("%d\n", *((int*)(lists->content)));
 **	return (0);
 **}
 */

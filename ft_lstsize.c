@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:50:59 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/19 16:37:44 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/20 14:43:26 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {
 	int size;
 
-	if (lst == NULL)
-		return (-1);
 	size = 0;
 	while (lst)
 	{
