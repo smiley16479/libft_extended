@@ -6,13 +6,10 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 14:19:46 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/14 19:26:26 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 17:13:50 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 #include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
@@ -21,11 +18,12 @@ void	ft_putchar_fd(char c, int fd)
 }
 
 /*
-**int main(void)
+**int		main(void)
 **{
-**		int fd;
-**		fd = open("./text.txt", O_WRONLY);
-**		ft_putchar_fd('c', fd);
-**		return (0);
+**	int fd;
+**
+**	fd = open("./text.txt", O_WRONLY);
+**	ft_putchar_fd('c', fd);
+**	return (0);
 **}
 */

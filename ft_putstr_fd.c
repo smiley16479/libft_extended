@@ -6,14 +6,11 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 14:19:36 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/21 15:18:42 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/10/21 17:16:36 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {
