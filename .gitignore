@@ -1,1 +1,4 @@
-Libftest
+a.out
+a.out.dSYM
+.vscode
+printf_note.txt
