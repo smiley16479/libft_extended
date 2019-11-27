@@ -6,7 +6,7 @@
 #    By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 18:52:42 by adtheus           #+#    #+#              #
-#    Updated: 2019/11/25 19:14:48 by adtheus          ###   ########.fr        #
+#    Updated: 2019/11/27 16:37:47 by adtheus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,12 @@ $(NAME):	${OBJS}
 #			ranlib $(NAME)
 
 all:		${NAME}
-			
+
+test:		
+			${GCC} ${CFLAGS} -g3 -fsanitize=address printf.c printf_utils.c \
+			initializer_func.c ft_check_simple.c \
+			ft_display.c ft_put_type.c ft_display_utils.c
+
 clean:		
 			${RM} ${OBJS}
 			make fclean -C ./libft 

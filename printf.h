@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 11:40:20 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/25 19:09:20 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/11/27 15:43:31 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef	struct s_struc
 	int		zero;
 	int		space;
 	int		field_wid;
-	int		precision;
+	int		precis;
 	int		type;
 	int		ret;
 	char	str[11];
@@ -45,7 +45,7 @@ int ft_strlen1(const char *str);
 int arg_parse(const char **str, t_struc *su, va_list ap);
 int	conversion_parse(t_struc *su, va_list ap);
 int flag_parse(const char **str, va_list ap, t_struc *su);
-int	setflagwildcard(t_struc *su, va_list ap, int precision_or_field);
+int	setflagwildcard(t_struc *su, va_list ap, int precis_or_field);
 
 // Ds initializer_func.c
 void tabfunc_initializer(void (**f)(t_struc *su, va_list ap));
@@ -75,5 +75,6 @@ void	ft_display_char(t_struc *su, char c);
 // Ds ft_display_utils.c
 void 	minus_brick(t_struc *su, char *str);
 void	minusoff_brick(t_struc *su, char *str);
+int		exception_nb_null(t_struc *su, char *str);
 
 #endif

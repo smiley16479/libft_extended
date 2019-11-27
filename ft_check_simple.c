@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 17:31:17 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/20 19:43:35 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/11/26 22:40:46 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ int	ft_strlen1(const char *str)
 	return (length);
 }
 
-int	setflagwildcard(t_struc *su, va_list ap, int precision_or_field)
+int	setflagwildcard(t_struc *su, va_list ap, int precis_or_field)
 {
-	if (precision_or_field == 0)
+	if (precis_or_field == 0)
 	{
 		su->field_wid = va_arg(ap, int);
 		if (su->field_wid < 0)
@@ -67,6 +67,6 @@ int	setflagwildcard(t_struc *su, va_list ap, int precision_or_field)
 		su->field_wid < 0 ? su->field_wid *= -1 : 0;
 	}
 	else
-		(su->precision = va_arg(ap, int)) < 0 ? su->precision = 0 : 0;
+		(su->precis = va_arg(ap, int)) < 0 ? su->precis = -1 : 0;
 	return (0);
 }

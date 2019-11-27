@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 18:58:01 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/22 18:50:35 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/11/27 16:53:40 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void sufunc_initializer(t_struc *su)
 	su->minus = 0;
 	su->zero = 0;
 	su->field_wid = 0;
-	su->precision = -1;
+	su->precis = -1;
 	su->type = 0;
-	su->space = 0 ;
-	su->ret = 0 ;
+	su->space = 0;
+	// su->ret = 0;
 	*su->str = '\0';
 }

@@ -6,21 +6,26 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 18:16:36 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/25 18:12:33 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/11/27 17:52:11 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
+//ajout de check
+#include <stdio.h>
+
+
 int arg_parse(const char **str, t_struc *su, va_list ap)
 {
-	while (*(*str)++)
+	// while (*(*str)++)
+	(void) *(*str)++;
 		if ((su->type = is_converter(**str)) && (*str)++)
 			return (conversion_parse(su, ap));
 		else if (is_flag(**str))
 		{
 			flag_parse(str, ap, su);
-			su->type = is_converter(**str);
+			(su->type = is_converter(**str)) ? (*str)++ : 0;
 			conversion_parse(su, ap);
 		}
 		else
@@ -39,7 +44,7 @@ int	conversion_parse(t_struc *su, va_list ap)
 
 int flag_parse(const char **str, va_list ap, t_struc *su)
 {// ici on fait le parsing de flag pour l'affichage
-	// printf("Voici l'état de la structure avant :\n int minus : %d\nint zero : %d\nint space : %d\nint field_wi : %d\nint precision : %d\nchar str[11]: %s\n\n", su->minus , su->zero, su->space, su->field_wid, su->precision, su->str);
+	// printf("Voici l'état de la structure avant :\n int minus : %d\nint zero : %d\nint space : %d\nint field_wi : %d\nint precis : %d\nchar str[11]: %s\n\n", su->minus , su->zero, su->space, su->field_wid, su->precis, su->str);
 	while (is_flag(**str))
 	{
 		if (**str == '-' && (*str)++)
@@ -55,20 +60,20 @@ int flag_parse(const char **str, va_list ap, t_struc *su)
 			else if (isdigit1(**str))
 				su->field_wid = ft_atoi1(str);
 		}
-		if (**str == '.' && (*str)++) //precision field
+		if (**str == '.' && (*str)++) //precis field
 		{
 				if (**str == '*' && (*str)++)
-					setflagwildcard(su, ap, 1); //su->precision = va_arg(ap, int); //
+					setflagwildcard(su, ap, 1); //su->precis = va_arg(ap, int); //
 				else if (isdigit1(**str))
-					su->precision = ft_atoi1(str);
+					su->precis = ft_atoi1(str);
 				else if (**str == '-' && (*str)++)
 					while(isdigit1(**str))
 						(*str)++;
 				else 
-					su->precision = 0;
+					su->precis = 0;
 		}
 	}
-	// printf("Voici l'etat de la structure apres :\nint minus : %d\nint zero : %d\nint space : %d\nint field_wi : %d\nint precision : %d\nchar str[11]: %s\n\n", su->minus , su->zero, su->space, su->field_wid, su->precision, su->str);
+	// printf("Voici l'etat de la structure apres :\nint minus : %d\nint zero : %d\nint space : %d\nint field_wi : %d\nint precis : %d\nchar str[11]: %s\n\n", su->minus , su->zero, su->space, su->field_wid, su->precis, su->str);
 	return (0);
 }
 
@@ -78,11 +83,14 @@ int ft_printf(const char *str, ...)
 	va_start(ap, str);
 	t_struc su;
 
-	sufunc_initializer(&su);
+	su.ret = 0;
 	while (*str)
 	{
 		if (*str == '%')
+		{
+			sufunc_initializer(&su);
 			arg_parse(&str, &su, ap);
+		}
 		else
 		{
 			write(1, str++, 1);
@@ -93,10 +101,7 @@ int ft_printf(const char *str, ...)
 	return (su.ret);
 }
 
-/*
-	//ajout de check
-	#include <stdio.h>
-
+/* /
 int main()
 {
 	// va_list ap;
@@ -121,20 +126,32 @@ int main()
 	// printf("%d",ft_printf("my :%%c :%010c\n", 'c'));
 	// printf("%-10.*s", 02,"hello je suis Adrien\n");
 	// ft_printf("%-10.*s", 02,"hello je suis Adrien\n");
-	// printf("%10.50s", "hello je suis Adrien\n");
-	// ft_printf("%10.50s", "hello je suis Adrien\n");
+	printf(   "of:%.s\n", "hello je suis Adrien\n");
+	ft_printf("my:%.s\n", "hello je suis Adrien\n");
 	// printf("%3s", "ABCD\n");
 	// ft_printf("%3s", "ABCD\n");
 	// ft_printf("my :%%15.01d :%15.01d\n",-123456);
     // printf("of :%%15.01d :%15.01d\n", -123456);
-    ft_printf("my :%%-8.10d :%10.1x\n", -123456);
-    printf(   "of :%%-8.10d :%10.1x\n", -123456);
+    //ft_printf("my :%%-8.10d :%10.1x\n", -123456);
+    //printf(   "of :%%-8.10d :%10.1x\n", -123456);
+
+	// printf("of[%0.d]\n",0);
+	// ft_printf("my[%0.d]\n",0);
+	// printf("of[%010.2d]\n",1);
+	// ft_printf("my[%010.2d]\n",1);
+
+	// printf(   "of[%.10x]\n",1234);
+	// ft_printf("my[%.10x]\n",1234);
+
+	// char *str = "qwer";
+	// printf(   "of[%%%%%%%p%s]\n",&str, str);
+	// ft_printf("my[%%%%%%%p%s]\n",&str, str);
 
 	// ft_printf(str, "hello les aminches");
 	// conversion_parse(9 , ap);
 	return 0;
 }
-*/
+// */
 /*
 int	conversion_parse(int type, va_list ap, t_struc su)
 {//Ici on analyse le flag et on retourne la bonne conversion
