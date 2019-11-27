@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 14:03:54 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/27 18:01:37 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/11/27 18:30:51 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_display_str(t_struc *su, char *str)
 	}
 	else
 	{
-		// length = (su->precis < length) ? su->precis: length;// marche mieux sans
+		length = (su->precis != -1) ? su->precis: length;// marche mieux sans
 		if (su->field_wid > length)
 			while (su->field_wid-- > length && ++su->ret)
 				write(1, " ", 1);
