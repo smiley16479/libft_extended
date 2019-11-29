@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 19:52:22 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/26 21:48:36 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/11/29 15:27:23 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*itoa_base_pointer(size_t nb, int base, char *str_b)
 
 	ite[i] = 1;
 	ite[j] = 1;
-	while ((nb / ite[i]) > (unsigned)base && ite[j]++)
+	while ((nb / ite[i]) > ((unsigned)base -1) && ite[j]++)
 		ite[i] *= base;
 	if (!(str = (char*)malloc(sizeof(char) * ite[j] + 1)))
 		return (NULL);
@@ -41,7 +41,7 @@ char	*itoa_base(unsigned int nb, int base, char *str_b)
 
 	ite[i] = 1;
 	ite[j] = 1;
-	while ((nb / ite[i]) > (unsigned int)base && ite[j]++)
+	while ((nb / ite[i]) > ((unsigned int)base - 1) && ite[j]++)
 		ite[i] *= base;
 	if (!(str = (char*)malloc(sizeof(char) * ite[j] + 1)))
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 18:16:36 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/27 17:52:11 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/11/29 15:32:44 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,8 @@ int main()
 	// printf(str, 27, 21);
 
     int *ptr;
-    int i = 42;
-    ptr =   &i; // NULL; //
+    // int i = 42;
+    ptr =    NULL; //&i; //
 	// printf(   "of :%%-.p :%-18.14p\n", ptr);
 	// ft_printf("my :%%-.p :%-18.14p\n", ptr);
 	// printf(	  "of :%%10.8d :%12.8d\n",-123456);
@@ -126,8 +126,8 @@ int main()
 	// printf("%d",ft_printf("my :%%c :%010c\n", 'c'));
 	// printf("%-10.*s", 02,"hello je suis Adrien\n");
 	// ft_printf("%-10.*s", 02,"hello je suis Adrien\n");
-	printf(   "of:%.s\n", "hello je suis Adrien\n");
-	ft_printf("my:%.s\n", "hello je suis Adrien\n");
+	printf(   "of:%-*p|\n", 5, "abcdef");
+	ft_printf("my:%-*p|\n", 5, "abcdef");
 	// printf("%3s", "ABCD\n");
 	// ft_printf("%3s", "ABCD\n");
 	// ft_printf("my :%%15.01d :%15.01d\n",-123456);

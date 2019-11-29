@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 17:31:17 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/26 22:40:46 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/11/29 14:47:59 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	is_flag(const char c)
 
 	if (isdigit1(c))
 		return (1);
-	flag = "-0.*";
+	flag = "-0.* ";
 	i = -1;
 	while (flag[++i])
 		if (c == flag[i])
