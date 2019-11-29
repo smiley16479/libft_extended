@@ -6,18 +6,28 @@
 #    By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 18:52:42 by adtheus           #+#    #+#              #
-#    Updated: 2019/11/29 19:09:36 by adtheus          ###   ########.fr        #
+#    Updated: 2019/11/25 17:53:51 by adtheus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= 	ft_check_simple.c	ft_display_utils.c	initializer_func.c printf.c\
-			ft_display.c		ft_put_type.c		printf_utils.c
+SRCS	= 	ft_isascii.c 	ft_memcpy.c 	ft_strlcat.c 	ft_substr.c		ft_isdigit.c\
+		 	ft_memmove.c 	ft_strlcpy.c 	ft_tolower.c	ft_atoi.c 		ft_isprint.c\
+			ft_memset.c 	ft_strlen.c		ft_toupper.c 	ft_bzero.c 		ft_itoa.c\
+			ft_split.c		ft_strncmp.c	ft_calloc.c		ft_memccpy.c	ft_strchr.c\
+			ft_strnstr.c	ft_isalnum.c	ft_memchr.c		ft_strdup.c		ft_strrchr.c\
+			ft_isalpha.c	ft_memcmp.c		ft_strjoin.c	ft_strtrim.c	ft_strmapi.c\
+			ft_putchar_fd.c	ft_putstr_fd.c	ft_putendl_fd.c	ft_putnbr_fd.c\
 
-HEADER	= printf.h
+SRCS_B	=	ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c	ft_lstlast.c	ft_lstadd_back.c\
+			ft_lstdelone.c	ft_lstclear.c		ft_lstiter.c	ft_lstmap.c\
+
+HEADER	= libft.h
 		
 OBJS	= ${SRCS:.c=.o}
 
-NAME	= libftprintf.a
+OBJS_B	= ${SRCS_B:.c=.o}
+
+NAME	= libft.a 
 
 GCC		= gcc
 AR		= ar rcs 
@@ -28,29 +38,20 @@ CFLAGS	=	-Wall -Wextra -Werror
 .c.o:
 			${GCC} ${CFLAGS} -I ${HEADER} -c $< -o ${<:.c=.o}
 
-$(NAME):	${OBJS}
-			make -C ./libft
-# ${AR} ${NAME} -l libft.a ${OBJS}
-			cp libft/libft.a ./$(NAME)
-			${AR} ${NAME} ${OBJS}
-# ${GCC} ${CFLAGS} ./libft/libft.a ${OBJS}
-#			ar rc $(NAME) $(OBJS)
-#			ranlib $(NAME)
+$(NAME):	${OBJS} ${GCH}
+				${AR} ${NAME} ${OBJS}
 
 all:		${NAME}
 
-test:		
-			${GCC} ${CFLAGS} -g3 -fsanitize=address printf.c printf_utils.c \
-			initializer_func.c ft_check_simple.c \
-			ft_display.c ft_put_type.c ft_display_utils.c
-
+bonus:		${OBJS} ${OBJS_B} ${GCH}
+			${AR} ${NAME} ${OBJS} ${OBJS_B}
+			
 clean:		
-			${RM} ${OBJS}
-			make fclean -C ./libft 
+			${RM} ${OBJS} ${OBJS_B}
 
 fclean:		clean
 			${RM} ${NAME}
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all bonus clean fclean re

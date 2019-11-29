@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 18:13:06 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/27 15:46:19 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/11/29 18:56:48 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,17 @@ int		exception_nb_null(t_struc *su, char *str)
 		return (1);
 	}
 	return (0);
+}
+
+void	wildcard_part(const char **str, va_list ap, t_struc *su)
+{
+	if (**str == '*' && (*str)++)
+		setflagwildcard(su, ap, 1);
+	else if (isdigit1(**str))
+		su->precis = ft_atoi1(str);
+	else if (**str == '-' && (*str)++)
+		while (isdigit1(**str))
+			(*str)++;
+	else
+		su->precis = 0;
 }

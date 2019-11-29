@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 14:03:54 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/29 15:51:51 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/11/29 17:46:58 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,13 @@ void	ft_display_char(t_struc *su, char c)
 	}
 }
 
-void	ft_display_str(t_struc *su, char *str)
+int		ft_display_str(t_struc *su, char *str)
 {
 	int length;
 
-	if (!str)
-	{
-		ft_display_str(su, "(null)");
-		return ;
-	}
+	if (!str && ft_display_str(su, "(null)"))
+		return (0);
 	length = ft_strlen1(str);
-	// (su->precis < length && su->precis >= 0) ? str[su->precis] = 0 : 0;
 	if (su->minus)
 	{
 		while (*str && su->precis-- && ++su->ret)
@@ -53,13 +49,14 @@ void	ft_display_str(t_struc *su, char *str)
 	}
 	else
 	{
-		length = (su->precis != -1 && su->precis < length) ? su->precis: length;// marche mieux sans
+		length = su->precis != -1 && su->precis < length ? su->precis : length;
 		if (su->field_wid > length)
 			while (su->field_wid-- > length && ++su->ret)
 				write(1, " ", 1);
 		while (*str && su->precis-- && ++su->ret)
 			write(1, str++, 1);
 	}
+	return (1);
 }
 
 void	ft_display_nb(t_struc *su, char *str)
@@ -122,6 +119,7 @@ void	ft_display_ptr(t_struc *su, char *str)
 void	ft_display_hexa(t_struc *su, char *str)
 {
 	int length;
+
 	*str == '0' && su->precis != -1 ? *str = '\0' : 0;
 	length = ft_strlen1(str);
 	if (su->minus)
@@ -139,7 +137,7 @@ void	ft_display_hexa(t_struc *su, char *str)
 		su->precis = su->precis > length ? su->precis - length : 0;
 		while (su->field_wid-- > su->precis + length && ++su->ret)
 			write(1, " ", 1);
-		while (su->precis-- /*> length*/ && write(1, "0", 1) && ++su->ret)
+		while (su->precis-- && write(1, "0", 1) && ++su->ret)
 			su->field_wid--;
 		while (*str && ++su->ret)
 			write(1, str++, 1);
