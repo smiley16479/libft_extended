@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 18:13:06 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/29 19:20:02 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/12/02 18:12:13 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,26 @@ void	minusoff_brick(t_struc *su, char *str)
 	while (su->field_wid-- > su->precis - length + length && ++su->ret)
 		write(1, " ", 1);
 	while (su->precis-- > length && ++su->ret)
+		write(1, "0", 1);
+	while (*str && ++su->ret)
+		write(1, str++, 1);
+}
+
+void	minusoff_brick_nb(t_struc *su, char *str)
+{
+	int length;
+	int su_precis;
+
+	su_precis = su->precis;
+	length = ft_strlen1(str);
+	if (*str == '-')
+		su->precis++;
+	su->precis = su->precis > length ? su->precis - length : 0;
+	while (su->field_wid-- > length + su->precis && ++su->ret)
+		su->zero && su_precis == -1 ? write(1, "0", 1) : write(1, " ", 1);
+	if (*str == '-' && ++su->ret)
+		write(1, str++, 1);
+	while (su->precis-- && ++su->ret)
 		write(1, "0", 1);
 	while (*str && ++su->ret)
 		write(1, str++, 1);

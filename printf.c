@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 18:16:36 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/29 18:57:33 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/12/02 18:21:23 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,9 @@ int	ft_printf(const char *str, ...)
 	va_end(ap);
 	return (su.ret);
 }
-
 /*
+**#include <stdio.h>
+**
 ** int main()
 ** {
 ** 	// va_list ap;
@@ -93,7 +94,7 @@ int	ft_printf(const char *str, ...)
 ** 	// const char *str = "la chaine est %-*u\n";
 ** 	// ft_printf(str, 27, 21);
 ** 	// printf(str, 27, 21);
-** while(1){
+**
 **     int *ptr;
 **     // int i = 42;
 **     ptr =    NULL; //&i; //
@@ -109,30 +110,33 @@ int	ft_printf(const char *str, ...)
 ** 	// printf("%d",ft_printf("my :%%c :%010c\n", 'c'));
 ** 	// printf("%-10.*s", 02,"hello je suis Adrien\n");
 ** 	// ft_printf("%-10.*s", 02,"hello je suis Adrien\n");
-** 	printf(   "of:%-*p|\n", 5, "abcdef");
-** 	ft_printf("my:%-*p|\n", 5, "abcdef");
+** 	// printf(   "of:%-*p|\n", 5, "abcdef");
+** 	// ft_printf("my:%-*p|\n", 5, "abcdef");
 ** 	// printf("%3s", "ABCD\n");
 ** 	// ft_printf("%3s", "ABCD\n");
 ** 	// ft_printf("my :%%15.01d :%15.01d\n",-123456);
-**  // printf("of :%%15.01d :%15.01d\n", -123456);
-**  //ft_printf("my :%%-8.10d :%10.1x\n", -123456);
-**  //printf(   "of :%%-8.10d :%10.1x\n", -123456);
+**	// printf("of :%%15.01d :%15.01d\n", -123456);
+**	//ft_printf("my :%%-8.10d :%10.1x\n", -123456);
+**	//printf(   "of :%%-8.10d :%10.1x\n", -123456);
 **
-** 	printf("of[%0.d]\n",0);
-** 	ft_printf("my[%0.d]\n",0);
-** 	printf("of[%010.2d]\n",1);
-** 	ft_printf("my[%010.2d]\n",1);
+** 	// printf("of[%0.d]\n",0);
+** 	// ft_printf("my[%0.d]\n",0);
+** 	// printf("of[%010.2d]\n",1);
+** 	// ft_printf("my[%010.2d]\n",1);
 **
-** 	printf(   "of[%.10x]\n",1234);
-** 	ft_printf("my[%.10x]\n",1234);
+** 	// printf(   "of[%.10x]\n",1234);
+** 	// ft_printf("my[%.10x]\n",1234);
 **
-** 	char *str = "qwer";
-** 	printf(   "of[%%%%%%%p%s]\n",&str, str);
-** 	ft_printf("my[%%%%%%%p%s]\n",&str, str);
+** 	// char *str = "qwer";
+** 	// printf(   "of[%%%%%%%p%s]\n",&str, str);
+** 	// ft_printf("my[%%%%%%%p%s]\n",&str, str);
 **
 ** 	// ft_printf(str, "hello les aminches");
 ** 	// conversion_parse(9 , ap);
-** }
+**
+**	printf(   "of[%05.2u]\n", 10);
+** 	ft_printf("my[%05.2u]\n", 10);
+**
 ** 	return 0;
 ** }
 */

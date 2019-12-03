@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 11:40:20 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/29 19:20:28 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/12/02 18:12:35 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void			minus_brick(t_struc *su, char *str);
 void			minusoff_brick(t_struc *su, char *str);
 int				exception_nb_null(t_struc *su, char *str);
 void			wildcard_part(const char **str, va_list ap, t_struc *su);
+void			minusoff_brick_nb(t_struc *su, char *str);
 typedef	void	(*t_f)
 (
 	t_struc *su,

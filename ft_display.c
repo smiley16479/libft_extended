@@ -6,7 +6,7 @@
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 14:03:54 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/29 17:46:58 by adtheus          ###   ########.fr       */
+/*   Updated: 2019/12/02 18:08:00 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,8 @@ int		ft_display_str(t_struc *su, char *str)
 
 void	ft_display_nb(t_struc *su, char *str)
 {
-	int length;
-
 	if (*str == '0' && exception_nb_null(su, str))
 		return ;
-	length = ft_strlen1(str);
 	if (su->minus)
 	{
 		if (*str == '-' && write(1, str++, 1) && ++su->ret)
@@ -73,19 +70,7 @@ void	ft_display_nb(t_struc *su, char *str)
 		minus_brick(su, str);
 	}
 	else
-	{
-		if (*str == '-')
-			su->precis++;
-		su->precis = su->precis > length ? su->precis - length : 0;
-		while (su->field_wid-- > length + su->precis && ++su->ret)
-			su->zero && su->precis == -1 ? write(1, "0", 1) : write(1, " ", 1);
-		if (*str == '-' && ++su->ret)
-			write(1, str++, 1);
-		while (su->precis-- && ++su->ret)
-			write(1, "0", 1);
-		while (*str && ++su->ret)
-			write(1, str++, 1);
-	}
+		minusoff_brick_nb(su, str);
 }
 
 void	ft_display_ptr(t_struc *su, char *str)
