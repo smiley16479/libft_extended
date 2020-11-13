@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_simple.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 17:31:17 by adtheus           #+#    #+#             */
-/*   Updated: 2019/11/29 17:24:36 by adtheus          ###   ########.fr       */
+/*   Updated: 2020/11/07 20:16:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,12 @@ int	is_converter(const char c)
 int	is_flag(const char c)
 {
 	char	*flag;
-	int		i;
 
 	if (isdigit1(c))
 		return (1);
 	flag = "-0.* ";
-	i = -1;
-	while (flag[++i])
-		if (c == flag[i])
+	while (*flag)
+		if (c == *flag++)
 			return (1);
 	return (0);
 }

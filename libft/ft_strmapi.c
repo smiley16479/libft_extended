@@ -22,7 +22,7 @@ static size_t	strlen(char const *s)
 	return (l);
 }
 
-static void		strcpy(const char *src, char *dest)
+static void		my_strcpy(const char *src, char *dest)
 {
 	while (*src)
 		*(dest++) = *(src++);
@@ -38,7 +38,7 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (0);
 	if (!(str = (char*)malloc(sizeof(*str) * strlen(s) + 1)))
 		return (0);
-	strcpy(s, str);
+	my_strcpy(s, str);
 	i = 0;
 	while (str[i])
 	{

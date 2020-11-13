@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 15:30:02 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/15 15:41:35 by adtheus          ###   ########.fr       */
+/*   Created: 2019/10/23 17:19:48 by adtheus           #+#    #+#             */
+/*   Updated: 2019/11/01 18:52:31 by adtheus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-/*
-** Mets à zero tous les bytes spécifié par n
-*/
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <unistd.h>
+# include <stdlib.h>
 
-void	ft_bzero(void *s, size_t n)
+enum	e_list
 {
-	while (n--)
-		*((unsigned char*)s++) = 0;
-}
+	error = -1,
+	end_file,
+	new_line
+};
+int		ft_strlen(const char *str);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+int		gnl(char *tmp_str);
+int		alloc_line(char **line, char *current_line, int len);
+int		get_next_line(int fd, char **line);
+
+#endif

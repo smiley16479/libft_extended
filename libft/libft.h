@@ -22,6 +22,7 @@ int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
+int				ft_isspace(int c);
 char			*ft_itoa(int n);
 void			*ft_memccpy(void *restrict dst, const void *restrict src,
 				int c, size_t n);
@@ -33,6 +34,7 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memset(void *b, int c, size_t len);
 char			**ft_split(char const *s, char c);
 char			*ft_strchr(const char *s, int c);
+int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strdup(const char *s1);
 char			*ft_strjoin(char const *s1, char const *s2);
 size_t			ft_strlcat(char *restrict dst, const char *restrict src,

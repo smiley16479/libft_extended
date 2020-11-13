@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adtheus <adtheus@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 15:30:02 by adtheus           #+#    #+#             */
-/*   Updated: 2019/10/15 15:41:35 by adtheus          ###   ########.fr       */
+/*   Created: 2020/11/08 19:06:12 by user42            #+#    #+#             */
+/*   Updated: 2020/11/08 19:07:01 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-/*
-** Mets à zero tous les bytes spécifié par n
-*/
-
-void	ft_bzero(void *s, size_t n)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	while (n--)
-		*((unsigned char*)s++) = 0;
+	while (*s1 == *s2 && *s1)
+	{
+		++s1;
+		++s2;
+	}
+	return ((unsigned)*s1 - (unsigned)*s2);
 }
